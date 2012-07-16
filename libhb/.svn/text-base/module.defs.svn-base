@@ -1,0 +1,134 @@
+__deps__ := A52DEC BZIP2 FAAC FFMPEG FONTCONFIG FREETYPE LAME LIBASS LIBDCA \
+    LIBDVDREAD LIBDVDNAV LIBICONV LIBMKV LIBOGG LIBSAMPLERATE LIBTHEORA LIBVORBIS LIBXML2 \
+    MP4V2 MPEG2DEC PTHREADW32 X264 ZLIB LIBBLURAY
+
+$(eval $(call import.MODULE.defs,LIBHB,libhb,$(__deps__)))
+$(eval $(call import.GCC,LIBHB))
+
+###############################################################################
+
+LIBHB.src/   = $(SRC/)libhb/
+LIBHB.build/ = $(BUILD/)libhb/
+
+LIBHB.m4.in  = $(wildcard $(LIBHB.src/)*.m4)
+LIBHB.m4.out = $(patsubst $(LIBHB.src/)%.m4,$(LIBHB.build/)%,$(LIBHB.m4.in))
+
+LIBHB.c   = $(wildcard $(LIBHB.src/)*.c)
+LIBHB.c.o = $(patsubst $(SRC/)%.c,$(BUILD/)%.o,$(LIBHB.c))
+LIBHB.d   = $(LIBHB.m4.out) $(LIBHB.h.out) \
+    $(foreach n,$(LIBHB.prerequisites),$($n.INSTALL.target) )
+
+LIBHB.h.in  = $(wildcard $(LIBHB.src/)*.h)
+LIBHB.h.out = $(patsubst $(SRC/)%,$(BUILD/)%,$(LIBHB.h.in))
+
+###############################################################################
+
+LIBHB.a = $(LIBHB.build/)$(call TARGET.archive,hb)
+
+###############################################################################
+
+LIBHB.out += $(LIBHB.m4.out)
+LIBHB.out += $(LIBHB.c.o)
+LIBHB.out += $(LIBHB.h.out)
+LIBHB.out += $(LIBHB.a)
+
+###############################################################################
+
+ifeq (1,$(FEATURE.ff.mpeg2))
+LIBHB.GCC.D += USE_FF_MPEG2
+endif
+LIBHB.GCC.D += __LIBHB__ USE_PTHREAD
+LIBHB.GCC.I += $(LIBHB.build/) $(CONTRIB.build/)include
+
+ifeq ($(BUILD.system),cygwin)
+    LIBHB.GCC.D += SYS_CYGWIN
+else ifeq ($(BUILD.system),darwin)
+    LIBHB.GCC.D += SYS_DARWIN
+    LIBHB.c += $(wildcard $(LIBHB.src/)platform/macosx/*.c)
+else ifeq ($(BUILD.system),linux)
+    LIBHB.GCC.D += SYS_LINUX _LARGEFILE_SOURCE _FILE_OFFSET_BITS=64
+else ifeq ($(BUILD.system),mingw)
+    LIBHB.GCC.D += SYS_MINGW PTW32_STATIC_LIB
+	LIBHB.GCC.args.extra.dylib++ += -Wl,--enable-auto-import -static
+else ifeq ($(BUILD.system),solaris)
+    LIBHB.GCC.D += SYS_SunOS _LARGEFILE_SOURCE _FILE_OFFSET_BITS=64
+else
+    LIBHB.platform.D = SYS_UNKNOWN
+endif
+
+## required for <libdvdread/*.h>
+ifneq (,$(filter $(BUILD.arch),ppc ppc64))
+	LIBHB.GCC.D += WORDS_BIGENDIAN
+endif
+
+###############################################################################
+
+## when defined this gives us the subdir name, or flavor of asm implementation
+ifneq (disabled,$(FEATURE.asm))
+
+LIBHB.yasm.src/   = $(LIBHB.src/)$(FEATURE.asm)/
+LIBHB.yasm.build/ = $(LIBHB.build/)$(FEATURE.asm)/
+LIBHB.yasm.asm    = $(LIBHB.yasm.src/)deinterlace-a.asm
+LIBHB.yasm.o      = $(LIBHB.yasm.asm:$(LIBHB.yasm.src/)%.asm=$(LIBHB.yasm.build/)%.o)
+LIBHB.yasm.d      = $(wildcard $(LIBHB.yasmsrc/)*.h)
+
+LIBHB.YASM.I     = $(LIBHB.yasm.src/)
+LIBHB.YASM.ASM_O = $(strip $(YASM.exe) \
+    -f $(LIBHB.YASM.f) \
+    -m $(LIBHB.YASM.m) \
+    $(LIBHB.YASM.D:%=-D%) \
+    $(LIBHB.YASM.I:%=-I%) \
+    -o $(1) $(2))
+
+LIBHB.out += $(LIBHB.yasm.o)
+
+endif
+
+###############################################################################
+
+ifeq (1-mingw,$(BUILD.cross)-$(BUILD.system))
+
+LIBHB.dll = $(LIBHB.build/)hb.dll
+LIBHB.lib = $(LIBHB.build/)hb.lib
+
+LIBHB.dll.libs = $(foreach n, \
+        a52 ass avcodec avformat avutil dca dvdnav dvdread faac fontconfig freetype mkv mpeg2 mp3lame mp4v2 \
+        ogg samplerate swscale theora vorbis vorbisenc x264 xml2 bluray, \
+        $(CONTRIB.build/)lib/lib$(n).a )
+
+ifneq ($(HAS.iconv),1)
+LIBHB.dll.libs += $(CONTRIB.build/)lib/libiconv.a
+else
+    LIBHB.GCC.l += iconv
+endif
+
+ifneq ($(HAS.pthread),1)
+LIBHB.dll.libs += $(CONTRIB.build/)lib/libpthreadGC2.a
+else
+    LIBHB.GCC.l += pthreadGC2
+endif
+
+ifneq ($(HAS.bz2),1)
+LIBHB.dll.libs += $(CONTRIB.build/)lib/libbz2.a
+else
+    LIBHB.GCC.l += bz2
+endif
+
+ifneq ($(HAS.libz),1)
+LIBHB.dll.libs += $(CONTRIB.build/)lib/libz.a
+else
+    LIBHB.GCC.l += z
+endif
+
+LIBHB.GCC.args.extra.dylib++ += -Wl,--out-implib,$(LIBHB.lib)
+LIBHB.GCC.l += iberty ws2_32
+ifeq ($(HAS.dlfcn),1)
+    LIBHB.GCC.l += dl
+endif
+LIBHB.out += $(LIBHB.dll) $(LIBHB.lib)
+
+endif
+
+###############################################################################
+
+BUILD.out += $(LIBHB.out)

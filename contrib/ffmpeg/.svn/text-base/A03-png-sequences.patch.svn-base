@@ -1,0 +1,31 @@
+Index: libavcodec/pngdec.c
+===================================================================
+--- ffmpeg.orig/libavcodec/pngdec.c	(revision 22823)
++++ ffmpeg/libavcodec/pngdec.c	(working copy)
+@@ -597,6 +597,18 @@
+         }
+     }
+  exit_loop:
++/* ffmpeg-r18421 introduced support for CorePNG p-frames which
++ * breaks raw png sequences created by QuickTime Pro.
++ * since only the first png appears to be marked as PKT_FLAG_KEY
++ * it means either QuickTime Pro is encoding incorrectly, or
++ * this code block needs to find other criteria.
++ *
++ * As of ffmpeg-r19079 this patch should no longer be required.
++ * It offers a similar solution; forces code block to be skipped.
++ *
++ * --kb
++ */
++#if 0
+      /* handle p-frames only if a predecessor frame is available */
+      if(s->last_picture->data[0] != NULL) {
+          if(!(avpkt->flags & AV_PKT_FLAG_KEY)) {
+@@ -613,6 +625,7 @@
+             }
+         }
+     }
++#endif
+ 
+     *picture= *s->current_picture;
+     *data_size = sizeof(AVFrame);

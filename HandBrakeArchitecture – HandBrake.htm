@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0052)https://trac.handbrake.fr/wiki/HandBrakeArchitecture -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+      HandBrakeArchitecture – HandBrake
+    </title>
+    
+        <link rel="search" href="https://trac.handbrake.fr/search">
+        <link rel="help" href="https://trac.handbrake.fr/wiki/TracGuide">
+        <link rel="alternate" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture?format=txt" type="text/x-trac-wiki" title="Plain Text">
+        <link rel="start" href="https://trac.handbrake.fr/wiki">
+        <link rel="stylesheet" href="./HandBrakeArchitecture – HandBrake_files/trac.css" type="text/css"><link rel="stylesheet" href="./HandBrakeArchitecture – HandBrake_files/wiki.css" type="text/css">
+        <link rel="shortcut icon" href="https://trac.handbrake.fr/chrome/common/trac.ico" type="image/x-icon">
+        <link rel="icon" href="https://trac.handbrake.fr/chrome/common/trac.ico" type="image/x-icon">
+      <link type="application/opensearchdescription+xml" rel="search" href="https://trac.handbrake.fr/search/opensearch" title="Search HandBrake">
+    <script type="text/javascript" src="./HandBrakeArchitecture – HandBrake_files/jquery.js"></script><script type="text/javascript" src="./HandBrakeArchitecture – HandBrake_files/babel.js"></script><script type="text/javascript" src="./HandBrakeArchitecture – HandBrake_files/trac.js"></script><script type="text/javascript" src="./HandBrakeArchitecture – HandBrake_files/search.js"></script><script type="text/javascript" src="./HandBrakeArchitecture – HandBrake_files/folding.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+  <script>window["_GOOG_TRANS_EXT_VER"] = "1";</script></head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://handbrake.fr/"><img src="./HandBrakeArchitecture – HandBrake_files/HandBrakeIcon128.png" alt=""></a>
+      </div>
+      <form id="search" action="https://trac.handbrake.fr/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="">
+          <input type="submit" value="Search">
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="https://trac.handbrake.fr/login">Login</a></li><li><a href="https://trac.handbrake.fr/wiki/TracGuide">Help/Guide</a></li><li><a href="https://trac.handbrake.fr/about">About Trac</a></li><li class="last"><a href="https://trac.handbrake.fr/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="https://trac.handbrake.fr/wiki">Wiki</a></li><li><a href="https://trac.handbrake.fr/timeline">Timeline</a></li><li><a href="https://trac.handbrake.fr/roadmap">Roadmap</a></li><li><a href="https://trac.handbrake.fr/browser">Browse Source</a></li><li><a href="https://trac.handbrake.fr/report">View Tickets</a></li><li class="last"><a href="https://trac.handbrake.fr/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="https://trac.handbrake.fr/wiki">wiki:</a><a class="pathentry" href="./HandBrakeArchitecture – HandBrake_files/HandBrakeArchitecture – HandBrake.htm" title="View HandBrakeArchitecture">HandBrakeArchitecture</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="https://trac.handbrake.fr/wiki/WikiStart">Start Page</a></li><li><a href="https://trac.handbrake.fr/wiki/TitleIndex">Index</a></li><li class="last"><a href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture?action=history">History</a></li>
+          </ul>
+        <hr>
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          
+          <div class="trac-modifiedby"><a href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture?action=diff&version=7" title="Version 7 by davidfstr: updated: new changes since SVN 3337 + Microsoft trivia :-)">Last modified</a> <a class="timeline" href="https://trac.handbrake.fr/timeline?from=2010-06-14T03%3A42%3A26Z&precision=second" title="2010-06-14T03:42:26Z in Timeline">11 months</a> ago</div>
+          <div id="wikipage"><h1 id="HandBrakeArchitectureGuide">HandBrake Architecture Guide<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#HandBrakeArchitectureGuide" title="Link to this section"> ¶</a></h1>
+<table class="wiki">
+<tbody><tr><td>Author</td><td>David Foster (davidfstr)
+</td></tr><tr><td>Last Updated</td><td>2010-06-13
+</td></tr><tr><td>Applies to</td><td>HandBrake SVN 3337 (2010-05-30) (after 0.9.4 release)
+</td></tr></tbody></table>
+<h2 id="Audience">Audience<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#Audience" title="Link to this section"> ¶</a></h2>
+<p>
+This document is to familarize new developers on the HandBrake project with the existing architecture.
+</p>
+<h2 id="WhatisHandBrake">What is HandBrake?<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#WhatisHandBrake" title="Link to this section"> ¶</a></h2>
+<p>
+HandBrake is a media (video/audio/subtitle) transcoder. This means that it takes media from an input source (e.g. file or DVD), modifies it, and sends it to an output file.
+</p>
+<p>
+<a style="padding:0; border:none" href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/HighLevel.jpg"><img width="324px" src="./HandBrakeArchitecture – HandBrake_files/HighLevel.jpg"></a>
+</p>
+<p>
+Of course the story of how this is actually done is more complex. Before diving in, you need to know about the anatomy of a movie file.
+</p>
+<h2 id="AnatomyofaMovieFile">Anatomy of a Movie File<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#AnatomyofaMovieFile" title="Link to this section"> ¶</a></h2>
+<p>
+A movie file is broken up into multiple <strong>tracks</strong>, each of which contains a separate stream of data. There is typically a single <em>video track</em>, one or more <em>audio tracks</em>, and zero or more <em>subtitle tracks</em>.
+</p>
+<p>
+Each track's data stream is carried by a series of <strong>packets</strong>:
+</p>
+<ul><li><em>Video packets</em> contain individual frames (and fragments of frames) which are displayed.
+</li><li><em>Audio packets</em> contain descriptions of discrete waveforms that describe the sound playing at a given moment.
+</li><li><em>Subtitle packets</em> contain text or graphics that are superimposed on the video frames.
+</li></ul><p>
+<a style="padding:0; border:none" href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/Tracks.jpg"><img width="648px" src="./HandBrakeArchitecture – HandBrake_files/Tracks.jpg"></a>
+</p>
+<p>
+When a movie is being played, data is being read from all of these tracks simultaneously in order to present the full video/audio experience.
+</p>
+<p>
+The packets from all of the tracks are stored in interleaved fashion in the movie file, so that they can be read out in serial fashion:
+</p>
+<p>
+<a style="padding:0; border:none" href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/SerializedTracks.png"><img width="648px" src="./HandBrakeArchitecture – HandBrake_files/SerializedTracks.png"></a>
+</p>
+<h2 id="TranscodingPipeline">Transcoding Pipeline<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#TranscodingPipeline" title="Link to this section"> ¶</a></h2>
+<p>
+During transcoding, a <strong>demuxer</strong> is responsible for extracting packets from the input source and passing them into the transcoding pipeline. Inside the pipeline, a series of <strong><a class="wiki" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture/WorkObjects">work objects</a></strong> (<em>link</em>) are used to transform individual packets. <strong>FIFOs</strong> are used to hold packets as they pass from one work object to another. Finally a <strong>muxer</strong> takes the output packets, interleaves them, and writes them to an output file.
+</p>
+<p>
+<a style="padding:0; border:none" href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/PipelineHighLevel.jpg"><img width="648px" src="./HandBrakeArchitecture – HandBrake_files/PipelineHighLevel.jpg"></a>
+</p>
+<p>
+The <strong><a class="wiki" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture/DoJob">nitty gritty details</a></strong> (<em>link</em>) can be found by reading <strong>do_job() [work.c]</strong>. That method is responsible for:
+</p>
+<ul><li>creating all FIFOs and work-objects,
+</li><li>linking the FIFOs together with the work-objects, and
+</li><li>running all of the work-objects until no packets are left.
+</li></ul><h2 id="SubsystemsSourceCodeLayout">Subsystems &amp; Source Code Layout<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#SubsystemsSourceCodeLayout" title="Link to this section"> ¶</a></h2>
+<p>
+HandBrake's primary functionality is in the core (<strong>libhb</strong>). To exercise it, you need to use the command-line interface (CLI) or one of the OS-specific GUIs. For development purposes, the CLI is often the easiest.
+</p>
+<p>
+<a style="padding:0; border:none" href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/Subsystems.png"><img width="450px" src="./HandBrakeArchitecture – HandBrake_files/Subsystems.png"></a>
+</p>
+<p>
+Note that the Windows GUI is actually a wrapper for the CLI; it does not bind directly to libhb.
+</p>
+<p>
+Source Code Layout:
+</p>
+<ul><li>build/contrib/ (<em>External libraries that HB depends on</em>)
+</li><li>gtk/ (<strong>Linux GUI</strong>)
+</li><li>libhb/ (<strong>HandBrake Core</strong>)
+</li><li>macosx/ (<strong>Mac GUI</strong>)
+</li><li>qt4/ (<em>abandoned Linux GUI</em>)
+</li><li>test/ (<strong>Command Line Interface</strong>)
+</li><li>win/C#/ (<strong>Windows GUI</strong>)
+</li></ul><h2 id="OverviewoftheHandBrakeCorelibhb">Overview of the HandBrake Core (libhb)<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#OverviewoftheHandBrakeCorelibhb" title="Link to this section"> ¶</a></h2>
+<p>
+<a style="padding:0; border:none" href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/HBCoreOverview-medium.jpg"><img width="648px" src="./HandBrakeArchitecture – HandBrake_files/HBCoreOverview-medium.jpg"></a>
+</p>
+<h2 id="ATypicalInvocationoftheHandBrakeCLI">A Typical Invocation of the HandBrake CLI<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#ATypicalInvocationoftheHandBrakeCLI" title="Link to this section"> ¶</a></h2>
+<p>
+A very thorough way of learning how HandBrake works is by using a debugger to trace what HandBrake is doing when you run it through the CLI. Naturally different kinds of invocations (ex: file vs. DVD input) will yield different traces.
+</p>
+<p>
+The following invocation, which transcodes from an MKV file input to an MKV file output...
+</p>
+<pre class="wiki">./HandBrakeCLI -i in.mkv -o out.mkv -s 1 --subtitle-default 1
+</pre><p>
+yields the following: <strong><a class="wiki" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture/StartupTrace">Startup Trace</a></strong>
+</p>
+<p>
+<em>The active reader is recommended to print out the above linked trace or have it open in another window when reading the following discussion. Bonus if you have the source code checked out as well and are reading along.</em>
+</p>
+<p>
+Analysis of the trace:
+</p>
+<ul><li>The <strong>main()</strong> function of the CLI, located in <strong>test/test.c</strong>, is invoked.
+</li><li><strong>ParseOptions()</strong> extracts all of the command-line arguments.
+</li><li><strong>hb_scan()</strong> asynchronously starts the scanning process on the specified input file, via <strong>ScanFunc()</strong>:
+<ul><li><strong>hb_stream_open()</strong> creates a <strong>hb_stream_t</strong> representing the file input. (<em>If the input was a DVD, hb_dvd_init() would have been used instead.</em>)
+</li><li><strong>hb_stream_title_scan()</strong> converts the hb_stream_t to an <strong>hb_title_t</strong>.
+<ul><li><a style="padding:0; border:none" href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/HBStreamToTitleConversion-medium.jpg"><img width="648px" src="./HandBrakeArchitecture – HandBrake_files/HBStreamToTitleConversion-medium.jpg"></a>
+</li><li><em>Errata: ffmpeg_title_scan() now understands and can generate subtitle tracks</em>
+</li></ul></li><li>Scan thread completes.
+</li></ul></li></ul><ul><li><strong>HandleEvents()</strong> gets triggered by <strong>HB_STATE_SCANDONE</strong>:
+<ul><li>Extracts an <strong>hb_job_t</strong> from the scanned hb_title_t.
+</li><li>Fills out all the properties of the job based on the command-line arguments.
+<ul><li>... (about 1500 lines)
+</li></ul></li><li>Calls <strong>hb_add()</strong> to add the job to the list of jobs for libhb to process.
+</li><li><strong>hb_start()</strong> asynchronously starts processing the one job, via <strong>do_job()</strong>.
+</li></ul></li><li><strong>do_job()</strong> <a class="wiki" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture/DoJob">sets up and runs the entire encoding pipeline</a> (<em>link</em>): (about 700 lines)
+<ul><li>Configures the encoding pipeline so that it matches the diagram in the "Transcoding Pipeline" section, by creating <a class="wiki" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture/WorkObjects">work-objects</a> (<em>link</em>) and attaching them to the FIFOs of the various tracks (<strong>job</strong> [video], <strong>job-&gt;list_audio</strong>, <strong>job-&gt;list_subtitle</strong>).
+</li><li>Starts the <strong>reader thread</strong>, which asynchronously demuxes packets from the input source and starts feeding them to the input FIFOs of the pipeline.
+</li><li>Starts all of the work-objects on their own threads (except <strong>hb_decFOOvideo</strong>), which will asynchronously consume from their input FIFO and emit through their output FIFO.
+</li><li>Starts special <strong>hb_muxer</strong> work-objects for each track, which asynchronously feed output packets from the pipeline to a shared <strong>hb_mux</strong> instance.
+</li><li>Manually runs the video decoder work-object (<strong>hb_decFOOvideo</strong>) until it finishes.
+</li><li>Cleans up everything, eventually deleting the job.
+</li></ul></li></ul><h2 id="Miscellaneous">Miscellaneous<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#Miscellaneous" title="Link to this section"> ¶</a></h2>
+<h3 id="TimeUnits">Time Units<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#TimeUnits" title="Link to this section"> ¶</a></h3>
+<p>
+HandBrake keeps track of time using "ticks", where 90,000 ticks = 1 second. This is not defined by any particular constant in the source code; it is just assumed information.
+</p>
+<p>
+1/90,000 second ticks were chosen because this is the timebase defined by the MPEG spec for timestamps in program streams and HandBrake was originally only for transcoding DVDs (which are themselves program streams).
+</p>
+<p>
+Therefore:
+</p>
+<ul><li><tt>buf-&gt;start / 90</tt> = <em>start time of packet in milliseconds</em>
+</li><li><tt>buf-&gt;start / 90000</tt> = <em>start time of packet in seconds</em>
+</li></ul><h3 id="AudioTracksPassthruvs.Transcode">Audio Tracks &gt; Passthru vs. Transcode<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#AudioTracksPassthruvs.Transcode" title="Link to this section"> ¶</a></h3>
+<p>
+The following information is distributed throughout the source:
+</p>
+<ul><li>AC3 and DCA audio tracks are passed thru.
+</li><li>All other audio tracks are transcoded.
+</li></ul><h3 id="SubtitleTracksVOBSubtitles">Subtitle Tracks &gt; VOB Subtitles<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#SubtitleTracksVOBSubtitles" title="Link to this section"> ¶</a></h3>
+<p>
+VOB subtitles are standard DVD subtitles.
+</p>
+<p>
+VOB subtitle tracks are treated a bit specially, probably because they were the first subtitle type to be implemented:
+</p>
+<ul><li>they should be configured as RENDERSUB by default (instead of as PASSTHRUSUB)
+<ul><li>Some interfaces, such as the CLI, assume that it is configured this way by default and so don't bother initializing it.
+</li></ul></li><li>they are (currently) the only kind of subtitle that outputs in PICTURESUB format
+</li><li>they are (currently) the only kind of subtitle that can be rendered on the video track
+</li></ul><h3 id="OutputContainerCapabilities">Output Container Capabilities<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#OutputContainerCapabilities" title="Link to this section"> ¶</a></h3>
+<p>
+Information about output container (and muxer) capabilities is currently distributed throughout source code. Examples:
+</p>
+<ul><li>Only the MKV and MP4 containers support subtitle tracks (i.e. PASSTHRU subs).
+</li><li>MKV supports VOB-sub passthru.
+</li><li>The MP4 muxer now also supports VOB-sub passthru as of SVN 3328, using the unofficial Nero format. Unfortunately not many players or devices recognize this yet.
+</li></ul><h3 id="AVIMicrooft">AVI &amp; Micro$oft<a class="anchor" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#AVIMicrooft" title="Link to this section"> ¶</a></h3>
+<p>
+The AVI container requires special handling in a number of places:
+</p>
+<ul><li>AVI does not support variable framerates. Therefore constant framerates must be forced via <tt>job-&gt;cfr</tt>.
+</li><li>Packed B-frames are strange and may come out of order. See <tt>decavcodec.c:decodeFrame</tt>
+</li></ul><p>
+Thanks to this special handling, you will find a lot of venting about the AVI container in the source code. Just search for some combination of:
+</p>
+<ul><li>AVI
+</li><li>MS, M$, Microsoft, Micro$oft
+</li><li>Redmond
+</li></ul><p>
+You may be amused. :-)
+</p>
+<p>
+You know what? I'll just do it for you:
+</p>
+<ul><li>libhb/decavcodec.c : setup_extradata
+<pre class="wiki">    // [...] In particular 
+    // vc1t_read_header allocates 'extradata' to deal with header issues
+    // related to Microsoft's bizarre engineering notions. We alloc a chunk
+    // of space to make vc1 work then associate the codec with the context.
+    if ( w-&gt;codec_param != CODEC_ID_VC1 )
+    {
+        // we haven't been inflicted with M$ - allocate a little space as
+        // a marker and return success.
+        pv-&gt;context-&gt;extradata_size = 16;
+        pv-&gt;context-&gt;extradata = av_malloc(pv-&gt;context-&gt;extradata_size);
+        return 0;
+    }
+</pre></li></ul><ul><li>libhb/decavcodec.c : init_ffmpeg_context
+<pre class="wiki">    // avi, mkv and possibly mp4 containers can contain the M$ VFW packed
+    // b-frames abortion that messes up frame ordering and timestamps.
+    // XXX ffmpeg knows which streams are broken but doesn't expose the
+    //     info externally. We should patch ffmpeg to add a flag to the
+    //     codec context for this but until then we mark all ffmpeg streams
+    //     as suspicious.
+    pv-&gt;brokenByMicrosoft = 1;
+</pre></li></ul><ul><li>libhb/decavcodec.c : decodeFrame
+<pre class="wiki">        // if we're doing a scan or this content couldn't have been broken
+        // by Microsoft we don't worry about timestamp reordering
+        if ( ! pv-&gt;job || ! pv-&gt;brokenByMicrosoft )
+        {
+            ...
+            return got_picture;
+        }
+
+        // XXX This following probably addresses a libavcodec bug but I don't
+        //     see an easy fix so we workaround it here.
+        //
+        // The M$ 'packed B-frames' atrocity results in decoded frames with
+        // the wrong timestamp. E.g., if there are 2 b-frames the timestamps
+        // we see here will be "2 3 1 5 6 4 ..." instead of "1 2 3 4 5 6".
+        // The frames are actually delivered in the right order but with
+        // the wrong timestamp. To get the correct timestamp attached to
+        // each frame we have a delay queue (longer than the max number of
+        // b-frames) &amp; a sorting heap for the timestamps. As each frame
+        // comes out of the decoder the oldest frame in the queue is removed
+        // and associated with the smallest timestamp. Then the new frame is
+        // added to the queue &amp; its timestamp is pushed on the heap.
+        // This does nothing if the timestamps are correct (i.e., the video
+        // uses a codec that Micro$oft hasn't broken yet) but the frames
+        // get timestamped correctly even when M$ has munged them.
+</pre></li></ul><ul><li>libhb/stream.c : ffmpeg_read
+<pre class="wiki">        case CODEC_ID_WMV3:
+            // XXX the ffmpeg WMV3 codec doesn't mark key frames.
+            // Only M$ could make I-frame detection this complicated: there
+            // are two to four bits of unused junk ahead of the frame type
+            // so we have to look at the sequence header to find out how much
+            // to skip. Then there are three different ways of coding the type
+            // depending on whether it's main or advanced profile then whether
+            // there are bframes or not so we have to look at the sequence
+            // header to get that.
+</pre></li></ul><ul><li>libhb/stream.c : ffmpeg_read
+<pre class="wiki">    if ( ( err = av_read_frame( stream-&gt;ffmpeg_ic, stream-&gt;ffmpeg_pkt )) &lt; 0 )
+    {
+        // XXX the following conditional is to handle avi files that
+        // use M$ 'packed b-frames' and occasionally have negative
+        // sizes for the null frames these require.
+        if ( err != AVERROR_NOMEM || stream-&gt;ffmpeg_pkt-&gt;size &gt;= 0 )
+            // eof
+            return 0;
+    }
+    if ( stream-&gt;ffmpeg_pkt-&gt;size &lt;= 0 )
+    {
+        // M$ "invalid and inefficient" packed b-frames require 'null frames'
+        // following them to preserve the timing (since the packing puts two
+        // or more frames in what looks like one avi frame). The contents and
+        // size of these null frames are ignored by the ff_h263_decode_frame
+        // as long as they're &lt; 20 bytes. We need a positive size so we use
+        // one byte if we're given a zero or negative size. We don't know
+        // if the pkt data points anywhere reasonable so we just stick a
+        // byte of zero in our outbound buf.
+        buf-&gt;size = 1;
+        *buf-&gt;data = 0;
+    }
+    else
+</pre></li></ul><ul><li>libhb/work.c : do_job
+<pre class="wiki">    if( job-&gt;mux &amp; HB_MUX_AVI )
+    {
+        // The concept of variable frame rate video was a bit too advanced
+        // for Microsoft so AVI doesn't support it. Since almost all dvd
+        // video is VFR we have to convert it to constant frame rate to
+        // put it in an AVI container. So duplicate, drop and
+        // otherwise trash video frames to appease the gods of Redmond.
+        job-&gt;cfr = 1;
+    }
+</pre></li></ul></div>
+        
+        
+      </div>
+      
+    <div id="attachments" class="collapsed">
+        <h3 class="foldable"><a id="no1" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture#no1">Attachments</a></h3>
+        <ul>
+            <li>
+    <a href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/SerializedTracks.png" title="View attachment">SerializedTracks.png</a>
+      <a href="./HandBrakeArchitecture – HandBrake_files/SerializedTracks.png" class="trac-rawlink" title="Download"><img src="./HandBrakeArchitecture – HandBrake_files/download.png" alt="Download"></a>
+       (<span title="57738 bytes">56.4 KB</span>) -
+      added by <em>davidfstr</em> <a class="timeline" href="https://trac.handbrake.fr/timeline?from=2010-06-03T06%3A27%3A13Z&precision=second" title="2010-06-03T06:27:13Z in Timeline">11 months</a> ago.
+            </li>
+            <li>
+    <a href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/HighLevel.jpg" title="View attachment">HighLevel.jpg</a>
+      <a href="./HandBrakeArchitecture – HandBrake_files/HighLevel.jpg" class="trac-rawlink" title="Download"><img src="./HandBrakeArchitecture – HandBrake_files/download.png" alt="Download"></a>
+       (<span title="72866 bytes">71.2 KB</span>) -
+      added by <em>davidfstr</em> <a class="timeline" href="https://trac.handbrake.fr/timeline?from=2010-06-03T06%3A39%3A51Z&precision=second" title="2010-06-03T06:39:51Z in Timeline">11 months</a> ago.
+            </li>
+            <li>
+    <a href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/Tracks.jpg" title="View attachment">Tracks.jpg</a>
+      <a href="./HandBrakeArchitecture – HandBrake_files/Tracks.jpg" class="trac-rawlink" title="Download"><img src="./HandBrakeArchitecture – HandBrake_files/download.png" alt="Download"></a>
+       (<span title="123269 bytes">120.4 KB</span>) -
+      added by <em>davidfstr</em> <a class="timeline" href="https://trac.handbrake.fr/timeline?from=2010-06-03T06%3A40%3A57Z&precision=second" title="2010-06-03T06:40:57Z in Timeline">11 months</a> ago.
+            </li>
+            <li>
+    <a href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/PipelineHighLevel.jpg" title="View attachment">PipelineHighLevel.jpg</a>
+      <a href="./HandBrakeArchitecture – HandBrake_files/PipelineHighLevel.jpg" class="trac-rawlink" title="Download"><img src="./HandBrakeArchitecture – HandBrake_files/download.png" alt="Download"></a>
+       (<span title="66872 bytes">65.3 KB</span>) -
+      added by <em>davidfstr</em> <a class="timeline" href="https://trac.handbrake.fr/timeline?from=2010-06-03T06%3A41%3A40Z&precision=second" title="2010-06-03T06:41:40Z in Timeline">11 months</a> ago.
+            </li>
+            <li>
+    <a href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/Subsystems.png" title="View attachment">Subsystems.png</a>
+      <a href="./HandBrakeArchitecture – HandBrake_files/Subsystems.png" class="trac-rawlink" title="Download"><img src="./HandBrakeArchitecture – HandBrake_files/download.png" alt="Download"></a>
+       (<span title="62198 bytes">60.7 KB</span>) -
+      added by <em>davidfstr</em> <a class="timeline" href="https://trac.handbrake.fr/timeline?from=2010-06-03T06%3A41%3A59Z&precision=second" title="2010-06-03T06:41:59Z in Timeline">11 months</a> ago.
+            </li>
+            <li>
+    <a href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/HBCoreOverview-medium.jpg" title="View attachment">HBCoreOverview-medium.jpg</a>
+      <a href="./HandBrakeArchitecture – HandBrake_files/HBCoreOverview-medium.jpg" class="trac-rawlink" title="Download"><img src="./HandBrakeArchitecture – HandBrake_files/download.png" alt="Download"></a>
+       (<span title="155601 bytes">152.0 KB</span>) -
+      added by <em>davidfstr</em> <a class="timeline" href="https://trac.handbrake.fr/timeline?from=2010-06-03T06%3A48%3A06Z&precision=second" title="2010-06-03T06:48:06Z in Timeline">11 months</a> ago.
+            </li>
+            <li>
+    <a href="https://trac.handbrake.fr/attachment/wiki/HandBrakeArchitecture/HBStreamToTitleConversion-medium.jpg" title="View attachment">HBStreamToTitleConversion-medium.jpg</a>
+      <a href="./HandBrakeArchitecture – HandBrake_files/HBStreamToTitleConversion-medium.jpg" class="trac-rawlink" title="Download"><img src="./HandBrakeArchitecture – HandBrake_files/download.png" alt="Download"></a>
+       (<span title="121756 bytes">118.9 KB</span>) -
+      added by <em>davidfstr</em> <a class="timeline" href="https://trac.handbrake.fr/timeline?from=2010-06-03T06%3A50%3A29Z&precision=second" title="2010-06-03T06:50:29Z in Timeline">11 months</a> ago.
+            </li>
+        </ul>
+    </div>
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="./HandBrakeArchitecture – HandBrake_files/trac_logo_mini.png" height="30" width="107" alt="Trac Powered"></a>
+      <p class="left">Powered by <a href="https://trac.handbrake.fr/about"><strong>Trac 0.12.2</strong></a><br>
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

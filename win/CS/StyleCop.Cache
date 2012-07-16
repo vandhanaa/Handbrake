@@ -1,0 +1,552 @@
+<stylecopresultscache>
+  <version>11</version>
+  <project key="28842602">
+    <configuration>TRACE;DEBUG</configuration>
+  </project>
+  <project key="-1619518832">
+    <configuration>
+    </configuration>
+  </project>
+  <sourcecode name="ActivityLogMode.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:50</timestamp>
+    <milliseconds>127</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ToolStripRenderOverride.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:39</timestamp>
+    <milliseconds>260</milliseconds>
+    <violations>
+      <violation namespace="StyleCop.CSharp.SpacingRules" rule="SingleLineCommentsMustBeginWithSingleSpace" ruleCheckId="SA1005">
+        <context>The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'.</context>
+        <line>27</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.SpacingRules" rule="SingleLineCommentsMustBeginWithSingleSpace" ruleCheckId="SA1005">
+        <context>The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'.</context>
+        <line>48</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+  <sourcecode name="QueryPictureSettingsMode.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:50</timestamp>
+    <milliseconds>184</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="QueryEncodeMode.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:50</timestamp>
+    <milliseconds>199</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="AssemblyInfo.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 15:44:29</timestamp>
+    <milliseconds>982</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="PresetLoader.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:39</timestamp>
+    <milliseconds>296</milliseconds>
+    <violations>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CodeMustNotContainMultipleBlankLinesInARow" ruleCheckId="SA1507">
+        <context>The code must not contain multiple blank lines in a row.</context>
+        <line>237</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+  <sourcecode name="QueryGenerator.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:39</timestamp>
+    <milliseconds>255</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Main.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:39</timestamp>
+    <milliseconds>269</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="SourceType.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:50</timestamp>
+    <milliseconds>120</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Program.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:55</timestamp>
+    <milliseconds>527</milliseconds>
+    <violations>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="ClosingCurlyBracketsMustNotBePrecededByBlankLine" ruleCheckId="SA1508">
+        <context>A closing curly bracket must not be preceded by a blank line.</context>
+        <line>128</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+  <sourcecode name="Resources.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:38</timestamp>
+    <milliseconds>115</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name=".NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>12/10/2010 19:23:42</timestamp>
+    <milliseconds>477</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="AudioPanel.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>271</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="AdvancedEncoderOpts.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>211</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="AdvancedEncoderOpts.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>393</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Filters.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>356</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Filters.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>342</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="AudioPanel.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>278</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="PictureSettings.designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>316</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="PictureSettings.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>323</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Subtitles.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>217</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Subtitles.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>245</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="x264Panel.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>285</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="frmPreview.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:55</timestamp>
+    <milliseconds>412</milliseconds>
+    <violations>
+      <violation namespace="StyleCop.CSharp.SpacingRules" rule="MemberAccessSymbolsMustBeSpacedCorrectly" ruleCheckId="SA1019">
+        <context>Invalid spacing around the member access symbol.</context>
+        <line>128</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="OpeningCurlyBracketsMustNotBeFollowedByBlankLine" ruleCheckId="SA1505">
+        <context>An opening curly bracket must not be followed by a blank line.</context>
+        <line>237</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CodeMustNotContainMultipleBlankLinesInARow" ruleCheckId="SA1507">
+        <context>The code must not contain multiple blank lines in a row.</context>
+        <line>246</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+  <sourcecode name="frmPreview.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:55</timestamp>
+    <milliseconds>406</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="x264Panel.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:51</timestamp>
+    <milliseconds>291</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="frmAbout.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:55</timestamp>
+    <milliseconds>183</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="frmAbout.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:55</timestamp>
+    <milliseconds>329</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="frmAddPreset.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:55</timestamp>
+    <milliseconds>364</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="frmAddPreset.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:55</timestamp>
+    <milliseconds>374</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="frmMain.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/12/2011 17:15:51</timestamp>
+    <milliseconds>287</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="frmOptions.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:55</timestamp>
+    <milliseconds>477</milliseconds>
+    <violations>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="OpeningCurlyBracketsMustNotBeFollowedByBlankLine" ruleCheckId="SA1505">
+        <context>An opening curly bracket must not be followed by a blank line.</context>
+        <line>323</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+  <sourcecode name="frmOptions.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:55</timestamp>
+    <milliseconds>470</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="frmQueue.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/10/2011 09:34:39</timestamp>
+    <milliseconds>813</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="frmQueue.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/10/2011 09:34:39</timestamp>
+    <milliseconds>802</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="frmActivityWindow.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:55</timestamp>
+    <milliseconds>244</milliseconds>
+    <violations>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CodeMustNotContainMultipleBlankLinesInARow" ruleCheckId="SA1507">
+        <context>The code must not contain multiple blank lines in a row.</context>
+        <line>484</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="ClosingCurlyBracketsMustNotBePrecededByBlankLine" ruleCheckId="SA1508">
+        <context>A closing curly bracket must not be preceded by a blank line.</context>
+        <line>485</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+  <sourcecode name="frmActivityWindow.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:55</timestamp>
+    <milliseconds>424</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="AdvancedAudio.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>547</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="AdvancedAudio.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>497</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="BatchAdd.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>557</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="BatchAdd.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>552</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="DownloadUpdate.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>642</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="DownloadUpdate.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>611</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ExceptionWindow.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>541</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ExceptionWindow.designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>491</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="TitleSpecificScan.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>571</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="TitleSpecificScan.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>565</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="UpdateInfo.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>581</milliseconds>
+    <violations>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CodeMustNotContainMultipleBlankLinesInARow" ruleCheckId="SA1507">
+        <context>The code must not contain multiple blank lines in a row.</context>
+        <line>61</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+  <sourcecode name="UpdateInfo.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:49</timestamp>
+    <milliseconds>576</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Settings.Designer.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/09/2011 11:48:38</timestamp>
+    <milliseconds>58</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="frmMain.cs" parser="StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>05/09/2011 11:48:55</timestamp>
+      <milliseconds>463</milliseconds>
+    </settings>
+    <timestamp>05/12/2011 17:15:51</timestamp>
+    <milliseconds>293</milliseconds>
+    <violations>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="OpeningCurlyBracketsMustNotBeFollowedByBlankLine" ruleCheckId="SA1505">
+        <context>An opening curly bracket must not be followed by a blank line.</context>
+        <line>832</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CodeMustNotContainMultipleBlankLinesInARow" ruleCheckId="SA1507">
+        <context>The code must not contain multiple blank lines in a row.</context>
+        <line>1174</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CodeMustNotContainMultipleBlankLinesInARow" ruleCheckId="SA1507">
+        <context>The code must not contain multiple blank lines in a row.</context>
+        <line>2376</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="CodeMustNotContainMultipleBlankLinesInARow" ruleCheckId="SA1507">
+        <context>The code must not contain multiple blank lines in a row.</context>
+        <line>2441</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
+</stylecopresultscache>

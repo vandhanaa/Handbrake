@@ -1,0 +1,13 @@
+pkg.create.zip:: pkg.create $(PKG.cli.zip)
+
+$(PKG.cli.zip): | $(dir $(PKG.cli.zip))
+$(PKG.cli.zip): | $(STAGE.out.cli/)
+	cd $(STAGE.out.cli/) && $(ZIP.exe) -r $(call fn.ABSOLUTE,$(PKG.cli.zip)) .
+
+
+$(STAGE.out.cli/):
+	-$(MKDIR.exe) -p $@
+	$(CP.exe) HandBrakeCLI.exe $(STAGE.out.cli/)
+	$(call STAGE.doc,$(STAGE.out.cli/))
+
+

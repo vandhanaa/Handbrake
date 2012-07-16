@@ -1,0 +1,13 @@
+Index: libavcodec/Makefile
+===================================================================
+--- ffmpeg.orig/libavcodec/Makefile	(revision 22823)
++++ ffmpeg/libavcodec/Makefile	(working copy)
+@@ -3,7 +3,7 @@
+ NAME = avcodec
+ FFLIBS = avutil
+ 
+-HEADERS = avcodec.h avfft.h dxva2.h opt.h vaapi.h vdpau.h xvmc.h
++HEADERS = avcodec.h avfft.h dxva2.h opt.h vaapi.h vdpau.h xvmc.h audioconvert.h
+ 
+ OBJS = allcodecs.o                                                      \
+        audioconvert.o                                                   \

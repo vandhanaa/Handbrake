@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0065)https://trac.handbrake.fr/wiki/HandBrakeArchitecture/StartupTrace -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+      HandBrakeArchitecture/StartupTrace – HandBrake
+    </title>
+    
+        <link rel="search" href="https://trac.handbrake.fr/search">
+        <link rel="help" href="https://trac.handbrake.fr/wiki/TracGuide">
+        <link rel="alternate" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture/StartupTrace?format=txt" type="text/x-trac-wiki" title="Plain Text">
+        <link rel="up" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture" title="View parent page">
+        <link rel="start" href="https://trac.handbrake.fr/wiki">
+        <link rel="stylesheet" href="./HandBrakeArchitecture StartupTrace – HandBrake_files/trac.css" type="text/css"><link rel="stylesheet" href="./HandBrakeArchitecture StartupTrace – HandBrake_files/wiki.css" type="text/css">
+        <link rel="shortcut icon" href="https://trac.handbrake.fr/chrome/common/trac.ico" type="image/x-icon">
+        <link rel="icon" href="https://trac.handbrake.fr/chrome/common/trac.ico" type="image/x-icon">
+      <link type="application/opensearchdescription+xml" rel="search" href="https://trac.handbrake.fr/search/opensearch" title="Search HandBrake">
+    <script type="text/javascript" src="./HandBrakeArchitecture StartupTrace – HandBrake_files/jquery.js"></script><script type="text/javascript" src="./HandBrakeArchitecture StartupTrace – HandBrake_files/babel.js"></script><script type="text/javascript" src="./HandBrakeArchitecture StartupTrace – HandBrake_files/trac.js"></script><script type="text/javascript" src="./HandBrakeArchitecture StartupTrace – HandBrake_files/search.js"></script><script type="text/javascript" src="./HandBrakeArchitecture StartupTrace – HandBrake_files/folding.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+  <script>window["_GOOG_TRANS_EXT_VER"] = "1";</script></head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://handbrake.fr/"><img src="./HandBrakeArchitecture StartupTrace – HandBrake_files/HandBrakeIcon128.png" alt=""></a>
+      </div>
+      <form id="search" action="https://trac.handbrake.fr/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="">
+          <input type="submit" value="Search">
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="https://trac.handbrake.fr/login">Login</a></li><li><a href="https://trac.handbrake.fr/wiki/TracGuide">Help/Guide</a></li><li><a href="https://trac.handbrake.fr/about">About Trac</a></li><li class="last"><a href="https://trac.handbrake.fr/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="https://trac.handbrake.fr/wiki">Wiki</a></li><li><a href="https://trac.handbrake.fr/timeline">Timeline</a></li><li><a href="https://trac.handbrake.fr/roadmap">Roadmap</a></li><li><a href="https://trac.handbrake.fr/browser">Browse Source</a></li><li><a href="https://trac.handbrake.fr/report">View Tickets</a></li><li class="last"><a href="https://trac.handbrake.fr/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="https://trac.handbrake.fr/wiki">wiki:</a><a class="pathentry" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture" title="View HandBrakeArchitecture">HandBrakeArchitecture</a><span class="pathentry sep">/</span><a class="pathentry" href="./HandBrakeArchitecture StartupTrace – HandBrake_files/HandBrakeArchitecture StartupTrace – HandBrake.htm" title="View HandBrakeArchitecture/StartupTrace">StartupTrace</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture">Up</a></li><li><a href="https://trac.handbrake.fr/wiki/WikiStart">Start Page</a></li><li><a href="https://trac.handbrake.fr/wiki/TitleIndex">Index</a></li><li class="last"><a href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture/StartupTrace?action=history">History</a></li>
+          </ul>
+        <hr>
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          
+          <div class="trac-modifiedby"><a href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture/StartupTrace?action=diff&version=1" title="Version 1 by davidfstr: initial version; converted from Google Doc original">Last modified</a> <a class="timeline" href="https://trac.handbrake.fr/timeline?from=2010-06-03T07%3A40%3A42Z&precision=second" title="2010-06-03T07:40:42Z in Timeline">11 months</a> ago</div>
+          <div id="wikipage"><pre class="wiki">main [test.c]
+    ParseOptions(), CheckOptions()
+    hb_init()
+        hb_set_state( HB_STATE_IDLE )
+        hb_thread_init() =&gt; async call thread_func()
+    hb_scan() =&gt; async call ScanFunc()
+    while (!test.c::die) {
+        &lt;process keyboard input, if any&gt;
+        hb_snooze(200)
+        HandleEvents() =&gt; see below
+    }
+    hb_close
+
+=============================
+
+ScanFunc [scan.c]
+    hb_stream_open() : hb_stream_t [stream.c]
+        &lt;init new stream, called 'd' in the code, hereafter called 'stream'&gt; {
+            stream-&gt;file_handle = ...
+            stream-&gt;title = ...
+            stream-&gt;path = ...
+        }
+        ffmpeg_open(stream : hb_stream_t, title) [stream.c]
+            av_open_input_file() : AVFormatContext
+            av_find_stream_info(AVFormatContext)
+            &lt;init more stream fields&gt; {
+                stream-&gt;ffmpeg_ic = &lt;AVFormatContext&gt;
+                stream-&gt;hb_stream_type = ffmpeg
+            }
+        return stream
+        
+    hb_stream_title_scan(hb_stream_t) : hb_title_t [stream.c]
+        ffmpeg_title_scan(hb_stream_t) : hb_title_t
+            return &lt;new title&gt; {
+                title-&gt;type = HB_STREAM_TYPE
+                title-&gt;index = 1
+                title-&gt;{duration, hours, minutes, seconds} = ...
+                // NOTE: This field is associated with the demuxmpeg.c::hb_demux array
+                //       and the misnomer function-pointer type hb_muxer_t (which is a *de*muxer)
+                title-&gt;demuxer = HB_NULL_DEMUXER    
+                
+                /* Add the first video stream, ignore the rest */
+                // We have to use the 'internal' avcodec decoder because
+                // it needs to share the codec context from this video
+                // stream. The parser internal to av_read_frame
+                // passes a bunch of state info to the decoder via the context.
+                title-&gt;video_codec = WORK_DECAVCODECVI
+                // XXX: share hb_stream_t-&gt;ffmpeg_ic-&gt;(codec context) with the decoder thread
+                title-&gt;video_codec_param = ffmpeg_codec_param(...)
+                
+                /* Add all audio streams */
+                title-&gt;list_audio = 
+                    &lt;map all audio AVStreams in the AVFormatContext to hb_audio_ts
+                     using add_ffmpeg_audio()&gt;
+                
+                /* Add all subtitle streams */
+                title-&gt;list_subtitle = 
+                    &lt;map all subtitle AVStreams in the AVFormatContext to hb_subtitle_ts
+                     using add_ffmpeg_subtitle()&gt;
+                
+                title-&gt;container_name = ...
+                title-&gt;data_rate = ...
+                
+                title-&gt;list_chapter = 
+                    &lt;map all AVChapters in the AVFormatContext to hb_chapter_ts, OR
+                     if no AVChapters, create one dummy chapter that covers the entire stream&gt;
+                
+                title-&gt;metadata = decmetadata(title)
+            }
+    
+    hb_set_state( HB_STATE_SCANNING )
+    ... (minor stuff)
+    &lt;scan thread exits&gt;
+
+=============================
+
+thread_func [hb.c]
+    while (!h-&gt;die) {
+        ...
+        if (hb_thread_has_exited( h-&gt;scan_thread ) {
+            hb_set_state( HB_STATE_SCANDONE )
+        }
+        ...
+    }
+
+=============================
+
+HandleEvents [test.c]
+    switch (hb_get_state()) {
+        ...
+        case HB_STATE_SCANDONE: {
+            job = title-&gt;job
+            &lt;parse all command-line arguments and configure job&gt; --- LOOOOOOOOOOOOOONG
+            hb_add(job)
+            hb_start()
+                hb_set_state( HB_STATE_WORKING )
+                hb_work_init() =&gt; async call work_func()
+        }
+        ...
+    }
+
+=============================
+
+work_func [work.c]
+    do_job(hb_job_t)
+        ... (see page #8 of handwritten notes)
+    &lt;work thread exits&gt;
+
+=============================
+
+thread_func [hb.c]
+    while (!h-&gt;die) {
+        ...
+        if (hb_thread_has_exited( h-&gt;work_thread ) {
+            hb_set_state( HB_STATE_WORKDONE )
+        }
+        ...
+    }
+
+=============================
+
+HandleEvents [test.c]
+    switch (hb_get_state()) {
+        ...
+        case HB_STATE_WORKDONE: {
+            &lt;print error if any&gt;
+            test.c::die = 1
+        }
+        ...
+    }
+    &lt;returns to the calling main() function, which looks at test.c::die and then terminates&gt;
+</pre></div>
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="https://trac.handbrake.fr/wiki/HandBrakeArchitecture/StartupTrace?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="./HandBrakeArchitecture StartupTrace – HandBrake_files/trac_logo_mini.png" height="30" width="107" alt="Trac Powered"></a>
+      <p class="left">Powered by <a href="https://trac.handbrake.fr/about"><strong>Trac 0.12.2</strong></a><br>
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

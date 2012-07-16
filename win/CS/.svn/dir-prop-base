@@ -1,0 +1,26 @@
+K 10
+svn:ignore
+V 336
+*.suo
+*.user
+HandBrake.ApplicationFramework
+HandBrakeCS.4.1.resharper.user
+HandBrakeCS.4.5.resharper.user
+HandBrakeCS.5.0.resharper.user
+HandBrakeCS.csproj.user
+StyleCop.Cache
+_ReSharper.HandBrake
+_ReSharper.HandBrake10
+_ReSharper.HandBrake2008
+_ReSharper.HandBrakeCS
+bin
+obj
+patch.patch
+todo.txt
+[Bb]in
+[Dd]ebug
+[Rr]elease
+*.aps
+*.eto
+
+END

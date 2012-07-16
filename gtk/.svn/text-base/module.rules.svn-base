@@ -1,0 +1,45 @@
+$(eval $(call import.MODULE.rules,GTK))
+
+build: gtk.build
+install: gtk.install
+install-strip: gtk.install-strip
+uninstall: gtk.uninstall
+clean: gtk.clean
+xclean: gtk.xclean
+
+gtk.configure: $(GTK.CONFIGURE.stamp)
+
+$(GTK.CONFIGURE.stamp): | $(dir $(GTK.CONFIGURE.stamp))
+$(GTK.CONFIGURE.stamp): $(GTK.src/)Makefile.am
+$(GTK.CONFIGURE.stamp): $(GTK.src/)configure.ac $(GTK.src/)src/Makefile.am
+	set -e; cd $(GTK.src/); NOCONFIGURE=1 ./autogen.sh
+	set -e; cd $(GTK.build/); $(call fn.ABSOLUTE,$(GTK.src/))configure \
+		$(GTK.CONFIGURE.extra) \
+		PKG_CONFIG_PATH=$(BUILD/)contrib/lib/pkgconfig \
+	    CFLAGS="$(call fn.ARGS,GTK.GCC,.g .O *D ?extra)" \
+	    LDFLAGS="$(call fn.ARGS,GTK.GCC,?strip .g .O) " \
+	    --prefix=$(PREFIX) \
+	    --with-hb=$(call fn.ABSOLUTE,$(BUILD/))
+	$(TOUCH.exe) $@
+
+gtk.build: | $(GTK.build/)
+gtk.build: $(GTK.CONFIGURE.stamp) $(LIBHB.a)
+	+$(MAKE) -C $(GTK.build/)
+
+gtk.install-strip:
+	$(MAKE) -C $(GTK.build/) prefix=$(PREFIX) install-strip
+
+gtk.install:
+	$(MAKE) -C $(GTK.build/) prefix=$(PREFIX) install
+
+gtk.uninstall:
+	$(MAKE) -C $(GTK.build/) uninstall
+
+gtk.clean:
+	$(MAKE) -C $(GTK.build/) clean
+
+gtk.xclean:
+	$(MAKE) -C $(GTK.build/) distclean
+	$(RM.exe) -f $(GTK.out)
+	$(RM.exe) -fr $(GTK.build/)
+

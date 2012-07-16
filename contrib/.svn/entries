@@ -1,0 +1,103 @@
+10
+
+dir
+3975
+svn://svn.handbrake.fr/HandBrake/trunk/contrib
+svn://svn.handbrake.fr/HandBrake
+
+
+
+2011-04-28T20:31:17.517272Z
+3966
+jstebbins
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b64f7644-9d1e-0410-96f1-a4d463321fa5
+
+freetype
+dir
+
+pthreadw32
+dir
+
+libmkv
+dir
+
+libsamplerate
+dir
+
+libbluray
+dir
+
+bzip2
+dir
+
+mpeg2dec
+dir
+
+faac
+dir
+
+libvorbis
+dir
+
+fontconfig
+dir
+
+libdvdread
+dir
+
+zlib
+dir
+
+libogg
+dir
+
+a52dec
+dir
+
+x264
+dir
+
+ffmpeg
+dir
+
+libiconv
+dir
+
+mp4v2
+dir
+
+libdvdnav
+dir
+
+libtheora
+dir
+
+libxml2
+dir
+
+libass
+dir
+
+faad2
+dir
+
+libdca
+dir
+
+lame
+dir
+

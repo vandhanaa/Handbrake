@@ -1,0 +1,14 @@
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\bin\Debug\HandBrake.ApplicationServices.dll.config
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\bin\Debug\HandBrake.ApplicationServices.dll
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\bin\Debug\HandBrake.ApplicationServices.pdb
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\bin\Debug\Growl.Connector.dll
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\bin\Debug\Growl.CoreLibrary.dll
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\bin\Debug\HandBrakeInterop.dll
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\obj\Debug\HandBrake.ApplicationServices.Properties.Resources.resources
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\obj\Debug\HandBrake.ApplicationServices.dll
+C:\Users\VANDHANAA\Desktop\HandBrake\win\CS\HandBrake.ApplicationServices\obj\Debug\HandBrake.ApplicationServices.pdb

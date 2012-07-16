@@ -1,0 +1,55 @@
+time begin: Thu May 12 14:10:57 2011
+launch: /usr/bin/make -j1
+/usr/bin/mkdir -p libhb
+/usr/bin/m4 -Iproject ../libhb/project.h.m4 > libhb/project.h
+/usr/bin/cp ../libhb/common.h libhb/common.h
+/usr/bin/cp ../libhb/deccc608sub.h libhb/deccc608sub.h
+/usr/bin/cp ../libhb/downmix.h libhb/downmix.h
+/usr/bin/cp ../libhb/dvd.h libhb/dvd.h
+/usr/bin/cp ../libhb/eedi2.h libhb/eedi2.h
+/usr/bin/cp ../libhb/hb.h libhb/hb.h
+/usr/bin/cp ../libhb/hbffmpeg.h libhb/hbffmpeg.h
+/usr/bin/cp ../libhb/internal.h libhb/internal.h
+/usr/bin/cp ../libhb/lang.h libhb/lang.h
+/usr/bin/cp ../libhb/ports.h libhb/ports.h
+/usr/bin/mkdir -p ../download
+/usr/bin/wget -O ../download/a52dec-0.7.4.tar.gz http://download.handbrake.fr/handbrake/contrib/a52dec-0.7.4.tar.gz
+--2011-05-12 14:11:00--  http://download.handbrake.fr/handbrake/contrib/a52dec-0.7.4.tar.gz
+Resolving download.handbrake.fr (download.handbrake.fr)... 88.191.20.206
+Connecting to download.handbrake.fr (download.handbrake.fr)|88.191.20.206|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 242978 (237K) [application/octet-stream]
+Saving to: `../download/a52dec-0.7.4.tar.gz'
+
+     0K .......... .......... .......... .......... .......... 21% 21.5K 9s
+    50K .......... .......... .......... .......... .......... 42% 74.6K 4s
+   100K .......... .......... .......... .......... .......... 63% 74.6K 2s
+   150K .......... .......... .......... .......... .......... 84%  145K 1s
+   200K .......... .......... .......... .......              100%  117K=4.3s
+
+2011-05-12 14:11:08 (54.8 KB/s) - `../download/a52dec-0.7.4.tar.gz' saved [242978/242978]
+
+/usr/bin/mkdir -p contrib/a52dec
+/usr/bin/rm -fr ./contrib/a52dec/a52dec/
+/usr/bin/tar xfC ../download/a52dec-0.7.4.tar.gz ./contrib/a52dec/
+touch contrib/a52dec/.stamp.extract
+/usr/bin/patch -t -N -p1 -d ./contrib/a52dec/a52dec/ < ../contrib/a52dec/A00-dpl2.patch
+patching file include/a52.h
+patching file liba52/a52_internal.h
+patching file liba52/downmix.c
+/usr/bin/patch -t -N -p1 -d ./contrib/a52dec/a52dec/ < ../contrib/a52dec/A01-thread-safe.patch
+patching file liba52/a52_internal.h
+patching file liba52/imdct.c
+patching file liba52/parse.c
+touch contrib/a52dec/.stamp.patch
+set -e; cd ./contrib/a52dec/a52dec/; rm -fr aclocal.m4 autom4te.cache; autoreconf -fiv; CC=/usr/bin/gcc CFLAGS="" CXX=/usr/bin/g++ CXXFLAGS="" CPPFLAGS="" LDFLAGS="" PKG_CONFIG_PATH="/cygdrive/e/handbrake/build/contrib/lib/pkgconfig" ./configure --prefix=/cygdrive/e/handbrake/build/contrib/ --disable-dependency-tracking --disable-shared --enable-static
+autoreconf-2.68: Entering directory `.'
+autoreconf-2.68: configure.in: not using Gettext
+autoreconf-2.68: running: aclocal  --output=aclocal.m4t
+aclocal: macro `_LT_DECL_SED' required but not defined
+aclocal: macro `_LT_FUNC_STRIPNAME_CNF' required but not defined
+autoreconf-2.68: aclocal failed with exit status: 1
+make: *** [contrib/a52dec/.stamp.configure] Error 1
+time end: Thu May 12 14:11:13 2011
+duration: 15 seconds (15.84s)
+result: FAILURE (code 2)

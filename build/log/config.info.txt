@@ -1,0 +1,38 @@
+probe: host tuple...(pass) i686-pc-cygwin
+compute: available architectures...(pass) i686
+find: ar...(pass) /usr/bin/ar
+find: cp...(pass) /usr/bin/cp
+find: curl...(fail) not found
+find: gcc...(pass) /usr/bin/gcc
+find: gmake...(pass) /usr/bin/make
+find: m4...(pass) /usr/bin/m4
+find: mkdir...(pass) /usr/bin/mkdir
+find: gpatch...(pass) /usr/bin/patch
+find: rm...(pass) /usr/bin/rm
+find: ranlib...(pass) /usr/bin/ranlib
+find: strip...(pass) /usr/bin/strip
+find: gtar...(pass) /usr/bin/tar
+find: wget...(pass) /usr/bin/wget
+find: yasm...(pass) /usr/local/bin/yasm
+find: xcodebuild...(fail) not found
+find: lipo...(fail) not found
+select: fetch...(pass) wget (/usr/bin/wget)
+compute: build tuple...(pass) i686-pc-cygwin
+probe: number of CPU cores...(pass) 2
+probe: svn info...(pass) svn://svn.handbrake.fr/HandBrake/trunk
+compute: project data...(pass) HandBrake (developer)
+compute: makevar SRC/    = ..
+compute: makevar BUILD/  = .
+compute: makevar PREFIX/ = /usr/local
+mkdir: ./build
+chdir: ./build
+write: GNUmakefile
+mkdir: project
+write: project/handbrake.m4
+mkdir: log
+write: log/build.txt
+time begin: Thu May 12 14:10:57 2011
+launch: /usr/bin/make -j1
+time end: Thu May 12 14:11:13 2011
+duration: 15 seconds (15.84s)
+result: FAILURE (code 2)

@@ -1,0 +1,80 @@
+probe: host tuple...(pass) i686-pc-cygwin
+  + ./make/config.guess
+  : i686-pc-cygwin
+compute: available architectures...(pass) i686
+  : <NO-OUTPUT>
+find: ar...(pass) /usr/bin/ar
+  : name[0] = ar
+find: cp...(pass) /usr/bin/cp
+  : name[0] = cp
+find: curl...(fail) not found
+  : name[0] = curl
+find: gcc...(pass) /usr/bin/gcc
+  : name[0] = gcc
+  : name[1] = gcc-4
+find: gmake...(pass) /usr/bin/make
+  : name[0] = gmake
+  : name[1] = make
+find: m4...(pass) /usr/bin/m4
+  : name[0] = m4
+find: mkdir...(pass) /usr/bin/mkdir
+  : name[0] = mkdir
+find: gpatch...(pass) /usr/bin/patch
+  : name[0] = gpatch
+  : name[1] = patch
+find: rm...(pass) /usr/bin/rm
+  : name[0] = rm
+find: ranlib...(pass) /usr/bin/ranlib
+  : name[0] = ranlib
+find: strip...(pass) /usr/bin/strip
+  : name[0] = strip
+find: gtar...(pass) /usr/bin/tar
+  : name[0] = gtar
+  : name[1] = tar
+find: wget...(pass) /usr/bin/wget
+  : name[0] = wget
+find: yasm...(pass) /usr/local/bin/yasm
+  : name[0] = yasm
+find: xcodebuild...(fail) not found
+  : name[0] = xcodebuild
+find: lipo...(fail) not found
+  : name[0] = lipo
+select: fetch...(pass) wget (/usr/bin/wget)
+  : tool[0] = wget (/usr/bin/wget)
+  : tool[1] = curl (curl)
+compute: build tuple...(pass) i686-pc-cygwin
+  : <NO-OUTPUT>
+probe: number of CPU cores...(pass) 2
+  : <NO-OUTPUT>
+probe: svn info...(pass) svn://svn.handbrake.fr/HandBrake/trunk
+  + svn info .
+  : Path: .
+  : URL: svn://svn.handbrake.fr/HandBrake/trunk
+  : Repository Root: svn://svn.handbrake.fr/HandBrake
+  : Repository UUID: b64f7644-9d1e-0410-96f1-a4d463321fa5
+  : Revision: 3975
+  : Node Kind: directory
+  : Schedule: normal
+  : Last Changed Author: sr55
+  : Last Changed Rev: 3975
+  : Last Changed Date: 2011-05-08 23:38:03 +0800 (Sun, 08 May 2011)
+  : 
+compute: project data...(pass) HandBrake (developer)
+  : <NO-OUTPUT>
+compute: makevar SRC/    = ..
+compute: makevar BUILD/  = .
+compute: makevar PREFIX/ = /usr/local
+mkdir: ./build
+chdir: ./build
+write: GNUmakefile
+mkdir: project
+write: project/handbrake.m4
+mkdir: log
+write: log/build.txt
+time begin: Thu May 12 14:10:57 2011
+launch: /usr/bin/make -j1
+time end: Thu May 12 14:11:13 2011
+duration: 15 seconds (15.84s)
+result: FAILURE (code 2)
+write: log/config.info.txt
+write: log/config.verbose.txt
